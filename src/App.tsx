@@ -13,7 +13,7 @@ function renderBookmark(opening: boolean, bookmarks: Set<number>, recipes: Recip
   if (opening) {
     const bookmarkedRecipes = recipes.filter(item => bookmarks.has(item.id))
     return (
-      <div className="fixed top-0 left-0 w-full h-screen">
+      <div className="fixed top-0 left-0 w-full h-screen z-20">
         <Bookmark recipes={bookmarkedRecipes}/>
       </div>)
   } else {
@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       {/* header */}
-      <div className="fixed w-full h-28 bg-white">
+      <div className="fixed w-full h-28 bg-white z-10">
         <div className="flex flex-row h-28 w-full items-end">
           <div className="flex justify-center w-full mx-5 mb-5 h-3/5 items-end">
             <div className="flex-grow text-center font-inter text-sm font-semibold leading-4 tracking-header text-left">
@@ -48,7 +48,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-full h-full pt-28 px-4">
+      <div className="flex flex-col w-full h-full pt-28 px-4 overflow-hidden">
         <div className="flex justify-center overflow-y-auto h-full w-full h-70">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {recipes.map(item => (<RecipeGridItem key={item.id} recipe={item} bookmarked={bookmarks.has(item.id)} />))}
