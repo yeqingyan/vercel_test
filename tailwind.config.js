@@ -5,7 +5,7 @@ module.exports = {
   content: ["./src/**/*.{html,js,tsx}"],
   theme: {
     fontSize: {
-      ssm: '0.4rem' // Small font for number of receipts bookmarked
+      ssm: '0.4rem' // Small font for number of recipes bookmarked
     },
     extend: {
       fontFamily: {

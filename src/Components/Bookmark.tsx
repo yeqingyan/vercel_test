@@ -1,34 +1,36 @@
-import { Receipt } from "../types/Receipt.d";
+import { Recipe } from "../types/Recipe.d";
 import close from '../images/close.svg';
 import BookmarkItem from "./BookmarkItem";
+import { useDispatch } from "react-redux";
+import { closeBookmark } from "../reducers/bookmarks";
 
 interface Props {
-    receipts: Receipt[];
+    recipes: Recipe[];
 }
 
-export default function Bookmark({ receipts }: Props) {
+export default function Bookmark({ recipes }: Props) {
+    const dispatch = useDispatch()
     return (
         <div>
             {/* Overlay */}
-            <div className="bg-zinc-950 w-full h-screen opacity-10">
+            <div className="bg-zinc-950 w-full h-screen opacity-10" onClick={() => dispatch(closeBookmark())}>
             </div>
             {/* Bookmark container */}
             <div className="fixed bottom-0 w-full h-1/3 bg-zinc-950 rounded-t-3xl">
                 <div className="flex flex-col">
                     {/* Close button */}
-                    <div className="ml-auto object-fill">
+                    <div className="ml-auto object-fill" onClick={() => dispatch(closeBookmark())}>
                         <img className="h-14 w-14 pt-4 pr-4" src={close} />
                     </div>
                     <div className="overflow-y-auto h-44 grid grid-cols-1 gap-4">
-                        {receipts.map(item => {
-                            const receipt: Receipt = {
+                        {recipes.map(item => {
+                            const recipe: Recipe = {
                                 id: item.id,
                                 title: item.title,
                                 imageUrl: item.imageUrl,
                             };
-                            return (<BookmarkItem receipt={receipt} />)
+                            return (<BookmarkItem recipe={recipe} />)
                         }
-
                         )}
                     </div>
                 </div>
