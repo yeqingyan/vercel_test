@@ -1,7 +1,6 @@
 import React from 'react';
 import bookmark from './images/bookmark_black.svg';
 import './App.css';
-import { items } from './data';
 import RecipeGridItem from './Components/RecipeGridItem';
 import { Recipe } from './types/Recipe.d';
 import Bookmark from './Components/Bookmark';
@@ -51,22 +50,13 @@ function App() {
       </div>
       <div className="flex flex-col w-full h-full pt-28 px-4">
         <div className="flex justify-center overflow-y-auto h-full w-full h-70">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {recipes.map(item => (<RecipeGridItem key={item.id} recipe={item} bookmarked={bookmarks.has(item.id)} />))}
-            {/* <div key={item.id} className="bg-blue-200 p-4"> */}
-            {/* <li className="p-2 hover:bg-blue-100">{item.title}</li> */}
-            {/* </div> */}
-            {/* )} */}
           </div>
         </div>
       </div>
       {renderBookmark(bookmarkOpening, bookmarks, recipes)}
-      {/* <div className="fixed top-0 left-0 w-full h-screen">
-        <Bookmark recipes={items.map(item => ({id: item.id,
-          title: item.title,
-                imageUrl: item.image[0].url,}))}/>
-      </div> */}
-    </div>
+=    </div>
   );
 }
 

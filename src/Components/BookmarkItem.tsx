@@ -13,7 +13,7 @@ export default function BookmarkItem({ recipe }: Props) {
             {/* Thumbnail */}
             <img className="aspect-square p-1 h-full w-14 rounded-lg" src={recipe.imageUrl}></img>
             {/* Name */}
-            <div className="font-inter font-normal text-xs text-white px-1">
+            <div className="font-inter font-normal text-xs text-white px-1 overflow-hidden text-ellipsis">
                 {recipe.title}
             </div>
             {/* Remove button */}
